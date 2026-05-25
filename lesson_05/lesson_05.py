@@ -271,7 +271,7 @@
 # user_data = {"username" : "admin", "role" : "qa_engineer"}
 # dict_keys = user_data.keys()
 # print(dict_keys)
-from pyexpat import features
+# from pyexpat import features
 
 # Create a dictionary named test_results with the keys test1 and test2.
 # Assign the value passed to test1 and failed to test2.
@@ -327,110 +327,110 @@ from pyexpat import features
 # Use dictionary comprehension to create a new dictionary named name_lengths.
 # In this dictionary, each name from the list should be a key, and its length (using the len() function) should be the value.
 # Print name_lengths to the console.
-
-
-# test_names = ["login", "api", "ui"]
-# name_lengths = {name : len(name) for name in test_names}
-# print(name_lengths)
-
-
-# Create a list named status_codes containing the numbers 200, 404, 500, 201.
-# Use dictionary comprehension to create a new dictionary named error_statuses.
-# Make each code the key and the string "error" the value, but ONLY include codes that are greater than or equal to 400.
-# Print error_statuses to the console.
-
-# status_codes = [200, 404, 500, 201]
-# error_statuses = {code : "error" for code in status_codes if code >= 400}
-# print(error_statuses)
-
-
-# Task: Filter e-commerce products by criteria
-# We have product_data where the key is the product ID.
-# The value is a tuple containing: (product_name, rating, price, in_stock).
-# We have a tuple named search_filter: (min_rating, max_price, should_be_in_stock)
-# Write code that filters products matching ALL criteria from search_filter.
-# Sort the matching products by rating in descending order (from highest to lowest).
-# Print all found elements.
-
-product_data = {
-    'p101': ('Laptop Lenovo', 4.5, 25000, True),
-    'p102': ('Mouse Logitech', 4.8, 1200, True),
-    'p103': ('Keyboard Razer', 4.2, 3500, False),
-    'p104': ('Monitor Dell', 4.9, 15000, True),
-    'p105': ('Headphones Sony', 4.1, 4000, True),
-    'p106': ('Webcam Logitech', 4.6, 2800, False),
-    'p107': ('USB Hub', 4.0, 800, True),
-    'p108': ('Laptop Apple', 4.9, 55000, True),
-    'p109': ('Mouse Apple', 4.3, 4500, True)
-}
-
-search_filter = (4.4, 20000, True)
-
-filtered_products = []
-for product_id, product_info in product_data.items():
-    if (product_info[1] >= search_filter[0]
-            and product_info[2] <= search_filter[1]
-            and product_info[3] == search_filter[2]):
-        filtered_products.append((product_info[1], product_info[0]))
-filtered_products.sort(reverse=True)
-print(filtered_products)
-
-
-
-# Task: Analyze failed tests from execution logs
-# test_logs contains data where the key is the test ID.
-# The value is a tuple: (test_name, module_name, execution_time_seconds, status).
-# We need to find tests that belong to the "checkout" module, failed ("FAILED"), and took strictly more than 3 seconds to execute.
-# Write code to filter these tests.
-# Store them in a list as tuples: (execution_time_seconds, test_name).
-# Sort the results by execution time in descending order (longest execution first).
-# Print the results.
-
-test_logs = {
-    't_01': ('test_login_valid', 'auth', 1.2, 'PASSED'),
-    't_02': ('test_payment_visa', 'checkout', 4.5, 'FAILED'),
-    't_03': ('test_cart_add', 'cart', 2.1, 'PASSED'),
-    't_04': ('test_payment_mastercard', 'checkout', 5.8, 'FAILED'),
-    't_05': ('test_checkout_guest', 'checkout', 1.5, 'PASSED'),
-    't_06': ('test_discount_code', 'checkout', 3.0, 'FAILED'),
-    't_07': ('test_search_filter', 'search', 6.2, 'FAILED'),
-    't_08': ('test_payment_paypal', 'checkout', 7.1, 'FAILED'),
-    't_09': ('test_password_reset', 'auth', 2.5, 'FAILED')
-}
-
-failed_test_check = []
-for test_id, test_info in test_logs.items():
-    if test_info[1] == "checkout" and test_info[3] == "FAILED" and test_info[2] > 3:
-        failed_test_check.append((test_info[2], test_info[0]))
-failed_test_check.sort(reverse=True)
-print(failed_test_check)
-
-
-# Task: Filter inactive admin users from API response
-# users_api_response is a list of dictionaries.
-# We need to find users who:
-# 1. Have the role "admin"
-# 2. Are active (is_active == True)
-# 3. Have been offline for strictly more than 30 days (days_offline > 30)
 #
-# Write a loop to filter these users.
-# Store the result in a new list as tuples: (days_offline, user_id).
-# Sort the list in descending order by days_offline (longest offline first).
-# Print the final list.
-
-users_api_response = [
-    {'user_id': 101, 'role': 'user', 'is_active': True, 'days_offline': 5},
-    {'user_id': 102, 'role': 'admin', 'is_active': True, 'days_offline': 45},
-    {'user_id': 103, 'role': 'admin', 'is_active': False, 'days_offline': 60},
-    {'user_id': 104, 'role': 'manager', 'is_active': True, 'days_offline': 12},
-    {'user_id': 105, 'role': 'admin', 'is_active': True, 'days_offline': 32},
-    {'user_id': 106, 'role': 'user', 'is_active': True, 'days_offline': 1},
-    {'user_id': 107, 'role': 'admin', 'is_active': True, 'days_offline': 15}
-]
-
-filtered_admins = []
-for user in users_api_response:
-    if user['role'] == 'admin' and user['is_active'] == True and user['days_offline'] > 30:
-        filtered_admins.append((user['days_offline'], user['user_id']))
-filtered_admins.sort(reverse=True)
-print(filtered_admins)
+#
+# # test_names = ["login", "api", "ui"]
+# # name_lengths = {name : len(name) for name in test_names}
+# # print(name_lengths)
+#
+#
+# # Create a list named status_codes containing the numbers 200, 404, 500, 201.
+# # Use dictionary comprehension to create a new dictionary named error_statuses.
+# # Make each code the key and the string "error" the value, but ONLY include codes that are greater than or equal to 400.
+# # Print error_statuses to the console.
+#
+# # status_codes = [200, 404, 500, 201]
+# # error_statuses = {code : "error" for code in status_codes if code >= 400}
+# # print(error_statuses)
+#
+#
+# # Task: Filter e-commerce products by criteria
+# # We have product_data where the key is the product ID.
+# # The value is a tuple containing: (product_name, rating, price, in_stock).
+# # We have a tuple named search_filter: (min_rating, max_price, should_be_in_stock)
+# # Write code that filters products matching ALL criteria from search_filter.
+# # Sort the matching products by rating in descending order (from highest to lowest).
+# # Print all found elements.
+#
+# product_data = {
+#     'p101': ('Laptop Lenovo', 4.5, 25000, True),
+#     'p102': ('Mouse Logitech', 4.8, 1200, True),
+#     'p103': ('Keyboard Razer', 4.2, 3500, False),
+#     'p104': ('Monitor Dell', 4.9, 15000, True),
+#     'p105': ('Headphones Sony', 4.1, 4000, True),
+#     'p106': ('Webcam Logitech', 4.6, 2800, False),
+#     'p107': ('USB Hub', 4.0, 800, True),
+#     'p108': ('Laptop Apple', 4.9, 55000, True),
+#     'p109': ('Mouse Apple', 4.3, 4500, True)
+# }
+#
+# search_filter = (4.4, 20000, True)
+#
+# filtered_products = []
+# for product_id, product_info in product_data.items():
+#     if (product_info[1] >= search_filter[0]
+#             and product_info[2] <= search_filter[1]
+#             and product_info[3] == search_filter[2]):
+#         filtered_products.append((product_info[1], product_info[0]))
+# filtered_products.sort(reverse=True)
+# print(filtered_products)
+#
+#
+#
+# # Task: Analyze failed tests from execution logs
+# # test_logs contains data where the key is the test ID.
+# # The value is a tuple: (test_name, module_name, execution_time_seconds, status).
+# # We need to find tests that belong to the "checkout" module, failed ("FAILED"), and took strictly more than 3 seconds to execute.
+# # Write code to filter these tests.
+# # Store them in a list as tuples: (execution_time_seconds, test_name).
+# # Sort the results by execution time in descending order (longest execution first).
+# # Print the results.
+#
+# test_logs = {
+#     't_01': ('test_login_valid', 'auth', 1.2, 'PASSED'),
+#     't_02': ('test_payment_visa', 'checkout', 4.5, 'FAILED'),
+#     't_03': ('test_cart_add', 'cart', 2.1, 'PASSED'),
+#     't_04': ('test_payment_mastercard', 'checkout', 5.8, 'FAILED'),
+#     't_05': ('test_checkout_guest', 'checkout', 1.5, 'PASSED'),
+#     't_06': ('test_discount_code', 'checkout', 3.0, 'FAILED'),
+#     't_07': ('test_search_filter', 'search', 6.2, 'FAILED'),
+#     't_08': ('test_payment_paypal', 'checkout', 7.1, 'FAILED'),
+#     't_09': ('test_password_reset', 'auth', 2.5, 'FAILED')
+# }
+#
+# failed_test_check = []
+# for test_id, test_info in test_logs.items():
+#     if test_info[1] == "checkout" and test_info[3] == "FAILED" and test_info[2] > 3:
+#         failed_test_check.append((test_info[2], test_info[0]))
+# failed_test_check.sort(reverse=True)
+# print(failed_test_check)
+#
+#
+# # Task: Filter inactive admin users from API response
+# # users_api_response is a list of dictionaries.
+# # We need to find users who:
+# # 1. Have the role "admin"
+# # 2. Are active (is_active == True)
+# # 3. Have been offline for strictly more than 30 days (days_offline > 30)
+# #
+# # Write a loop to filter these users.
+# # Store the result in a new list as tuples: (days_offline, user_id).
+# # Sort the list in descending order by days_offline (longest offline first).
+# # Print the final list.
+#
+# users_api_response = [
+#     {'user_id': 101, 'role': 'user', 'is_active': True, 'days_offline': 5},
+#     {'user_id': 102, 'role': 'admin', 'is_active': True, 'days_offline': 45},
+#     {'user_id': 103, 'role': 'admin', 'is_active': False, 'days_offline': 60},
+#     {'user_id': 104, 'role': 'manager', 'is_active': True, 'days_offline': 12},
+#     {'user_id': 105, 'role': 'admin', 'is_active': True, 'days_offline': 32},
+#     {'user_id': 106, 'role': 'user', 'is_active': True, 'days_offline': 1},
+#     {'user_id': 107, 'role': 'admin', 'is_active': True, 'days_offline': 15}
+# ]
+#
+# filtered_admins = []
+# for user in users_api_response:
+#     if user['role'] == 'admin' and user['is_active'] == True and user['days_offline'] > 30:
+#         filtered_admins.append((user['days_offline'], user['user_id']))
+# filtered_admins.sort(reverse=True)
+# print(filtered_admins)
